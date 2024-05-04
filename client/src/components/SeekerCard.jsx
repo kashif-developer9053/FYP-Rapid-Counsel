@@ -7,6 +7,7 @@ import { Loading } from "../components";
 const SeekerCard = ({ id }) => {
   const { user } = useSelector((state) => state.user);
   const [applicants, setApplicants] = useState([]);
+  console.log("this is user ID from seeker",user)
 
   const getApplicantDetails = async () => {
     try {

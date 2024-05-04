@@ -8,6 +8,7 @@ import About from "./About";
 import JobDetail from "./JobDetail";
 import Application from "./Application"
 import UserDetails from "./UserDetails"
+import Chat from "./chat";
 
 
 export {
@@ -20,6 +21,7 @@ export {
   About,
   JobDetail,
   Application,
-  UserDetails
+  UserDetails,
+  Chat
 
 };

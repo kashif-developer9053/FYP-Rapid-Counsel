@@ -21,6 +21,7 @@ const JobDetail = () => {
   const [hasApplied,setHasApplied] = useState(false)
   const [applicants,setApplicants] = useState([])
 
+  console.log(user)
 
   const getJobDetails = async ()=>{
     setIsFetching(true);

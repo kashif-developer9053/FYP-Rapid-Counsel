@@ -36,7 +36,7 @@ export const register = async (req, res, next) => {
     }
 
     // create a new account
-    const user = await Companies.create({
+    const company = await Companies.create({
       name,
       email,
       password,
@@ -44,7 +44,7 @@ export const register = async (req, res, next) => {
 
     // user token
     // const token = jwt.sign({ companyId: company._id }, secretKey);
-    const token = user.createJWT();
+    const token = company.createJWT();
 
 
     res.status(201).json({

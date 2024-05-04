@@ -11,4 +11,5 @@ import CompanyCard from "./CompanyCard";
 import Loading from "./Loading";
 import SeekerCard from "./SeekerCard";
 
+
 export { Navbar, Footer, CustomButton, TextInput, Header, ListBox, JobCard ,SignUp ,JobTypes , CompanyCard,Loading,SeekerCard};

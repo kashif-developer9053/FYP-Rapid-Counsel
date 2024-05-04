@@ -34,6 +34,9 @@ export const createJob = async (req, res, next) => {
     // Access userId from req.body.user
     const userId = req.body.userId;
     console.log("User ID from request body:", userId);
+    
+
+    
 
     if (!mongoose.Types.ObjectId.isValid(userId))
       return res.status(404).send(`No Company with id: ${userId}`);
@@ -266,68 +269,36 @@ export const updateJob = async (req, res, next) => {
   };
 
 
+
   export const applyForJob = async (req, res, next) => {
+    const token = req.headers.authorization.split(" ")[1];
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    let userId = decodedToken.userId;
+    console.log("User ID is: " + userId);
     try {
       const { id } = req.params;
       console.log("Job ID is: " + id);
-  
-      // Extract user ID from the token
-      const token = req.headers.authorization.split(" ")[1];
-      const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
-      const userId = decodedToken.id;
-      console.log("User ID is: " + userId);
-  
-      // Validate that userId is not undefined or null
-      if (!userId) {
-        return res.status(400).json({
-          message: "User ID is missing in the request body",
-          success: false,
-        });
-      }
-  
       // Use userId to find the user
       const user = await Users.findById(userId);
-  
       if (!user) {
-        return res.status(404).json({
-          message: "User Not Found",
-          success: false,
-        });
+        return res.status(404).json({ message: "User Not Found", success: false, });
       }
-  
       const job = await Jobs.findById(id);
-  
       if (!job) {
-        return res.status(404).json({
-          message: "Job Not Found",
-          success: false,
-        });
+        return res.status(404).json({ message: "Job Not Found", success: false, });
       }
-  
       if (job.application.includes(userId)) {
-        return res.status(400).json({
-          message: "User already applied for this job",
-          success: false,
-        });
+        return res.status(400).json({ message: "User already applied for this job", success: false, });
       }
-  
       job.application.push(userId);
-  
       await job.save();
-  
-      res.status(200).json({
-        message: "Application successful",
-        success: true,
-      });
+      res.status(200).json({ message: "Application successful", success: true, });
     } catch (error) {
       console.log(error);
-      res.status(500).json({
-        message: "Internal Server Error",
-        success: false,
-        error: error.message,
-      });
+      res.status(500).json({ message: "Internal Server Error", success: false, error: error.message, });
     }
   };
+  
   
 
   export const checkifApplied = async (req,res,next) =>

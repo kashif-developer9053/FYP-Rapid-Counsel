@@ -10,7 +10,8 @@ import {
   UploadJob,
   UserProfile,
   Application,
-  UserDetails
+  UserDetails,
+  Chat
 } from "./pages";
 import { useSelector } from "react-redux";
 
@@ -53,6 +54,10 @@ function App() {
           />
 
           <Route path={"/company-profile"} element={<CompanyProfile />} />
+          <Route path={"/chat"} element={<Chat />} />
+
+
+          
           <Route path={"/company-profile/:id"} element={<CompanyProfile />} />
           <Route path={"/user-details/:userId"} element={<UserDetails />} />
 

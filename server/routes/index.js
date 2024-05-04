@@ -4,6 +4,7 @@ import authRoute from "./authRoute.js";
 import userRoute from "./userRoute.js"
 import companiesRoute from "./companiesRoute.js"
 import jobRoute from "./jobRoute.js"
+import msgRoute from "./msgRoute.js"
 
 const router = express.Router();
 
@@ -13,5 +14,7 @@ router.use(`/auth`, authRoute);
 router.use(`/user`, userRoute); //api-v1/auth/
 router.use(`/companies`,companiesRoute);
 router.use(`/jobs`,jobRoute);
+router.use(`/messages`,msgRoute);
+
 
 export default router;
