@@ -86,7 +86,7 @@ export const signIn = async(req,res,next) =>
       
         user.password = undefined;
       
-        const token = jwt.sign({ email: user.email, id: user._id }, '9053', { expiresIn: '1h' }); // Adjust expiresIn as needed
+        const token = jwt.sign({ email: user.email, id: user._id }, '9053', { expiresIn: '30d' }); // Adjust expiresIn as needed
       
         res.status(201).json({
             success: true,

@@ -1,0 +1,125 @@
+.card{
+    width: 40%;
+    box-shadow: 0 0 15px grey ;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    color: white;
+    background-color: black;
+    padding: 10px;;
+    display: flex;
+}
+.card .content{
+    padding: 20px;
+}
+.card img{
+    margin: auto;
+    width: 100%;
+    height: 300px;
+}
+.card p{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.bg-orange{
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    color: orange;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 50px;
+
+    transition: 1s;
+
+}
+.bg-green{
+    width: 130px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    color: Green;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 50px;
+
+    transition: 1s;
+}
+button:hover{
+    background-color: rgb(163, 212, 212);
+}
+
+
+.previous-work {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .previous-work h1{
+    font-size: 30px;
+  }
+  
+  .contract-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .contract-card h2 {
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .contract-card p {
+    margin-bottom: 10px;
+  }
+  
+  .contract-card span {
+    text-transform: uppercase;
+  }
+  
+
+  .heading {
+    font-size: 25px;
+    margin-left: 20%;
+    width: 20%;
+    /* background-color: rgb(109, 100, 100); */
+    text-align: center;
+    color: black;
+    padding: 5px;
+    border-bottom: 4px solid black;
+    border-radius: 15px;
+  }
+
+  .search{
+    margin-left: 20%;
+
+
+  }
+  .search input{
+    background-color: black;
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 60px;
+    color: white;
+  }
+  .search button{
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-left: 10px;
+    width: 150px;
+    font-size: 20px;
+  }

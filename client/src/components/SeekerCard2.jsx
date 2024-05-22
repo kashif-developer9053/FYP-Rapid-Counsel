@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"; // Importing useSelector from react-r
 import { apiRequest } from "../utils";
 import { Loading } from "../components";
 
-const SeekerCard = ({ id }) => {
+const SeekerCard2 = ({ id }) => {
   const { user } = useSelector((state) => state.user);
   const [applicants, setApplicants] = useState([]);
   console.log("this is user ID from seeker",user)
@@ -15,7 +15,7 @@ const SeekerCard = ({ id }) => {
       await Promise.all(
         (res?.data?.application || []).map(async (applicant) => {
           const result = await apiRequest({
-            url: "/user/get-user-details/" + applicant,
+            url: "/user/get-user-details/" + id,
             token: user?.token,
             method: "GET",
           });
@@ -32,10 +32,7 @@ const SeekerCard = ({ id }) => {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    getApplicantDetails();
-  }, [id]);
+    
 
   return (
     <div className='flex flex-wrap'>
@@ -48,29 +45,22 @@ const SeekerCard = ({ id }) => {
             .map((seeker, index) => (
               <Link key={index} to={`/user-details/${seeker?._id}`}>
                 <div
-                  className='w-full md:w-[16rem] 2xl:w-[18rem] h-[16rem] md:h-[18rem] bg-black flex flex-col justify-between shadow-lg rounded-md px-3 py-5'
+                  className='w-full md:w-[16rem] 2xl:w-[18rem] h-[16rem] md:h-[18rem] bg-white flex flex-col justify-between shadow-lg rounded-md px-3 py-5'
                   style={{ margin: '0.5rem' }}
                 >
                   <div className='w-full h-full flex flex-col justify-between'>
                     <div className='flex gap-3'>
-                      <img src={seeker?.profileUrl} alt={seeker?.firstName} className='w-20 h-20 rounded-full' />
+                      <img src={seeker?.profileUrl} alt={seeker?.firstName} className='w-14 h-14' />
                       <div className='w-full h-16 flex flex-col justify-center'>
-                     
-                        {/* <p className='w-full h-12 flex item-center text-lg font-semibold overflow-hidden leading-5 '>
+                        <p className='w-full h-12 flex item-center text-lg font-semibold overflow-hidden leading-5 '>
+                          {seeker?.firstName}
+                        </p>
+                        <p className='w-full h-12 flex item-center text-lg font-semibold overflow-hidden leading-5 '>
                           {seeker?._id}
-                        </p> */}
+                        </p>
                       </div>
                     </div>
-                    <div className='py-3 text-white '>
-                    <p className='w-full h-12 flex item-center text-lg text-white font-semibold overflow-hidden leading-5 '>
-                          {seeker?.firstName} {seeker?.lastName}
-
-                        </p>
-                    <p> {seeker?.contact}</p>
-
-                    <p> {seeker?.jobTitle}</p>
-
-                      <p> {seeker?.location}</p>
+                    <div className='py-3'>
                       <p className='text-sm'>
                         {seeker?.about ? seeker.about.slice(0, 150) + "..." : "No information available"}
                       </p>
@@ -83,6 +73,6 @@ const SeekerCard = ({ id }) => {
       )}
     </div>
   );
-}
 
-export default SeekerCard;
+
+export default SeekerCard2;

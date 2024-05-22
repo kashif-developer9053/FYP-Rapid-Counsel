@@ -8,6 +8,7 @@ import { ListBox,JobCard, CustomButton   } from '../components'
 import { jobTypes } from '../utils/data';
 import { experience,jobs} from "../utils/data";
 import { apiRequest, updateURL } from '../utils';
+import './user.css'
 
 const FindJobs = () => {
   const [sort, setSort] = useState('Newest')
@@ -102,7 +103,7 @@ const FindJobs = () => {
   },[sort,filterJobTypes,filterExp,page])
 
 
-  return <div>
+  return <div className='mt-10'>
     <Header title ='Take the next step in your career'
     type="home"
     handleClick={handleSearchSubmit}
@@ -111,7 +112,7 @@ const FindJobs = () => {
     location = {jobLocation}
     setLocation={setJobLocation}
     />
-    <div className='container mx-auto flex gap-6 2xl:gap-10 md:px-5 py-0 md:py-6 bg-[#f7fdfd]'>
+    <div className='container mx-auto flex gap-6 2xl:gap-10 mt-0 md:px-5 py-0 md:py-6 bg-[#f7fdfd]'>
     <div className='hidden md:flex flex-col w-1/6 h-fit bg-white shadow-sm'>
     <p className='text-lg font-semibold text-slate-600'>Filter Search</p>
     <div className='py-2'>

@@ -38,7 +38,11 @@ const SignUp = ({ open, setOpen }) => {
     }
 
     try {
-      const res = await axios.post(URL, data);
+      const res = await axios.post(URL, data, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       if (res.data.success) {
         setErrMsg("");
         const userData = { token: res.data.token, ...res.data.user };

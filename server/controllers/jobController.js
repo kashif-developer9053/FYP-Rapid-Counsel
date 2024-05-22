@@ -273,7 +273,8 @@ export const updateJob = async (req, res, next) => {
   export const applyForJob = async (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    let userId = decodedToken.userId;
+    let userId = decodedToken.id;
+    
     console.log("User ID is: " + userId);
     try {
       const { id } = req.params;

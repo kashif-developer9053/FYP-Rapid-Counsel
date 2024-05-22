@@ -1,6 +1,6 @@
 import express from "express";
 import userAuth from "../middlewares/authMiddleware.js";
-import { getApplications, getUser, getUserDetails, updateUser } from "../controllers/userController.js";
+import { getApplications, getUser, getUserDetails, updateUser,getAllUsers } from "../controllers/userController.js";
 
 const router = express.Router();
 
@@ -15,5 +15,7 @@ router.get("/applied-jobs",userAuth,getApplications)
 //Seeker Details
 
 router.get("/get-user-details/:id",getUserDetails)
+router.get("/getAllUsers",getAllUsers)
+
 
 export default router;

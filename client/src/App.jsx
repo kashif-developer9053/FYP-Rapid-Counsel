@@ -11,7 +11,13 @@ import {
   UserProfile,
   Application,
   UserDetails,
-  Chat
+  Chat,
+  Lawyers,
+  ContractPage,
+  Contracts,
+  ContractsLaw,
+  LawyerPreviousWork
+  
 } from "./pages";
 import { useSelector } from "react-redux";
 
@@ -44,6 +50,16 @@ function App() {
           />
           <Route path="/find-jobs" element={<FindJobs />} />
           <Route path="/companies" element={<Companies />} />
+          <Route path="/contracts" element={<Contracts />} />
+          <Route path="/contractsLaw" element={<ContractsLaw />} />
+          <Route path="/LawyerPreviousWork" element={<LawyerPreviousWork />} />
+
+
+
+          <Route path="/lawyers" element={<Lawyers />} />
+          <Route path="/contract" element={<ContractPage />} />
+
+
           <Route
             path={
               user?.accountType === "seeker"

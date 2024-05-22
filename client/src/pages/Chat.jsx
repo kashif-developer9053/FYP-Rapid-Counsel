@@ -16,7 +16,7 @@ const Chat = () => {
     setNewMessage('');
 
     // Send message to backend API
-    fetch('http://localhost:8800/messages', {
+    fetch('http://localhost:8800/messages/newMessage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: newMessage, sender: 'client', lawyerId: lawyer._id, clientId: client._id }),

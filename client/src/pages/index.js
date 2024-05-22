@@ -8,7 +8,15 @@ import About from "./About";
 import JobDetail from "./JobDetail";
 import Application from "./Application"
 import UserDetails from "./UserDetails"
-import Chat from "./chat";
+import Chat from "./Chat";
+import Lawyers from "./Lawyers";
+import ContractPage from "./Contract";
+import Contracts from "./Contracts";
+import ContractsLaw from "./ContractsLaw";
+import LawyerPreviousWork from "./LawyerPreviousWork";
+
+
+
 
 
 export {
@@ -22,6 +30,12 @@ export {
   JobDetail,
   Application,
   UserDetails,
-  Chat
+  Chat,
+  Lawyers,
+  ContractsLaw
+,
+ContractPage,
+Contracts,
+LawyerPreviousWork
 
 };

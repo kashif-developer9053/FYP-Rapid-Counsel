@@ -17,15 +17,15 @@ const JobCard = ({ job }) => {
             className='w-14 h-14'
           />
 
-          <div className='w-full h-16 flex flex-col justify-center'>
+         
+        </div>
+        <div className='w-full h-16 flex flex-col justify-center'>
             <p className='w-full h-12 flex item-center text-lg font-semibold overflow-hidden leading-5 '>{job?.jobTitle}</p>
             <span className='flex gap-2 items-center'>
               <GoLocation className='text-slate-900 text-sm' />
               {job?.location}
             </span>
           </div>
-        </div>
-
         <div className='py-3'>
           <p className='text-sm'>
             {job?.detail[0]?.desc?.slice(0, 150) + "..."}

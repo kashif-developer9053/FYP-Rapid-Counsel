@@ -51,9 +51,9 @@ export const register = async (req, res, next) => {
       success: true,
       message: "Company Account Created Successfully",
       user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
+        _id: company._id,
+        name: company.name,
+        email: company.email,
       },
       token,
     });
@@ -89,7 +89,7 @@ export const signIn = async (req, res, next) => {
     }
     company.password = undefined;
 
-    const token = jwt.sign({ userId: company._id }, secretKey, { expiresIn: '1000h' });
+    const token = jwt.sign({ userId: company._id }, secretKey, { expiresIn: '30d' });
 
     res.status(200).json({
       success: true,

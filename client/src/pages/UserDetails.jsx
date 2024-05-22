@@ -1,10 +1,11 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiRequest } from "../utils";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Chat from "./Chat";
+import './user.css'
+import { Office} from "../assets";
 
 const UserDetails = () => {
   const { userId } = useParams();
@@ -46,38 +47,33 @@ const UserDetails = () => {
     navigate("/chat", { state: { lawyer, client } });
   };
 
+  const handleStartContract = () => {
+    navigate("/contract", { state: { lawyer  }})}        
+
+    const previousWork = () => {
+      navigate("/LawyerPreviousWork", { state: { lawyerId: lawyer?._id }})} 
+
+
   return (
-    <div className="container mx-auto p-8">
+    <div className="container">
       {isLoading ? (
         <p>Loading user details...</p>
       ) : users ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="card">
           <div>
-            <img
-              src={users?.profileUrl}
-              alt={`${users?.firstName} ${users?.lastName}`}
-              className="w-full h-auto rounded-lg"
-            />
+            <img src={users?.profileUrl} alt={`${users?.firstName} ${users?.lastName}`} />
           </div>
-          <div>
+          <div className="content">
             <h1 className="text-3xl font-bold mb-4">{`${users?.firstName} ${users?.lastName}`}</h1>
-            <p className="text-gray-600 mb-2">{users?.email}</p>
-            <p className="text-gray-600 mb-2">{users?.accountType}</p>
-            <p className="text-gray-600 mb-2">{users?.about}</p>
-            <p className="text-gray-600 mb-2">{users?.contact}</p>
-            <p className="text-gray-600 mb-2">{users?.jobTitle}</p>
-            <p className="text-gray-600 mb-2">{users?.location}</p>
-            <button
-              className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
-              onClick={handleContact}
-            >
-              Contact
-            </button>
-            <button
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Start Contract
-            </button>
+            <p>Email: {users?.email}</p>
+            <p>Title: {users?.jobTitle}</p>
+            <p>Phone No: {users?.contact}</p>
+            <p>Details: {users?.about}</p>
+            <p>From: {users?.location}</p>
+            <button className="bg-orange" onClick={handleContact}>Contact</button>
+            <button className="bg-green"  onClick={previousWork}>PreviousWork</button>
+
+            <button className="bg-green" onClick={handleStartContract}>Start Contract</button>
           </div>
         </div>
       ) : (

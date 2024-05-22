@@ -90,7 +90,7 @@ export const getApplications = async (req,res,next) =>
   try{
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    const id = decodedToken.userId;
+    const id = decodedToken.id;
 
     const user = await Users.findById(id);
 
@@ -152,5 +152,14 @@ export const getUserDetails = async (req, res, next) => {
       success: false,
       error: error.message,
     });
+  }
+};
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await Users.find();
+    res.json(users);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Error fetching lawyers' });
   }
 };
